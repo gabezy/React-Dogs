@@ -127,6 +127,7 @@ table {
   box-sizing: border-box;
 }
 body {
+  padding-top: 4rem;
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: "Spectral", Georgia;
@@ -149,6 +150,9 @@ input {
   color: #333;
 }
 
+a {
+  text-decoration: none;
+}
 .container {
   max-width: 50rem;
   padding: 0 1rem;
