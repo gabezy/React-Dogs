@@ -1,4 +1,6 @@
 import React from "react";
+import { USER_POST } from "../../api";
+import useFetch from "../../Hooks/useFetch";
 import useForm from "../../Hooks/useForm";
 import { UserContext } from "../../UserContext";
 import Button from "../Forms/Button";
@@ -10,12 +12,20 @@ const LoginCreate = () => {
   const password = useForm();
   const email = useForm("email");
   //
-  const { createUser, error, loading } = React.useContext(UserContext);
+  const { userLogin } = React.useContext(UserContext);
+  const { loading, error, request } = useFetch();
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (username.validate() && password.validate() && email.validate())
-      await createUser(username.value, password.value, email.value);
+    if (username.validate() && password.validate() && email.validate()) {
+      const { url, options } = USER_POST({
+        username: username.value,
+        email: email.value,
+        password: password.value,
+      });
+      const { response } = await request(url, options);
+      if (response.ok) userLogin(username.value, password.value);
+    }
   }
 
   return (

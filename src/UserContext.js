@@ -1,5 +1,5 @@
 import React from "react";
-import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET, USER_POST } from "./api";
+import { TOKEN_POST, TOKEN_VALIDATE_POST, USER_GET } from "./api";
 import { useNavigate } from "react-router-dom";
 
 // using React.createContext() to create a global context where
@@ -14,22 +14,6 @@ export const UserStorage = ({ children }) => {
   const [error, setError] = React.useState(null);
   // set a const to use the Router Dom custom hook to navigate to a certain page
   const navigate = useNavigate();
-
-  async function createUser(username, password, email) {
-    try {
-      setError(false);
-      setLoading(true);
-      const { url, options } = USER_POST({ username, password, email });
-      const response = await fetch(url, options);
-      if (response.status === 403) throw new Error("Email já cadastrado");
-      userLogin(username, password);
-      console.log(response);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setLoading(false);
-    }
-  }
 
   // func to get the user using the token to authorization in the server
   // with the USER_GET (api.js) endpoint
@@ -106,7 +90,7 @@ export const UserStorage = ({ children }) => {
   return (
     <UserContext.Provider
       // sharing all the states and functions using the value parameter
-      value={{ userLogin, userLogout, createUser, data, login, loading, error }}
+      value={{ userLogin, userLogout, data, login, loading, error }}
     >
       {children}
     </UserContext.Provider>
