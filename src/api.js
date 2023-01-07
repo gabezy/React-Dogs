@@ -82,6 +82,12 @@ export const PHOTO_GET = (id) => {
   };
 };
 
+export const PHOTO_GET_TO_PAGE = (id) => {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+  };
+};
+
 export const COMMENT_POST = (id, body, token) => {
   return {
     url: `${API_URL}/api/comment/${id}`,
