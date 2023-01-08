@@ -114,3 +114,29 @@ export const PHOTO_DELETE = (id, token) => {
     },
   };
 };
+
+export const PASSWORD_LOST = (body) => {
+  return {
+    url: `${API_URL}/api/password/lost`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
+
+export const PASSWORD_RESET = (body) => {
+  return {
+    url: `${API_URL}/api/password/reset`,
+    options: {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
