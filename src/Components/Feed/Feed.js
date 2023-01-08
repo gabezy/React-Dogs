@@ -1,25 +1,24 @@
 import React from "react";
 import FeedModal from "./FeedModal";
 import FeedPhoto from "./FeedPhoto";
+import PropTypes from "prop-types";
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
-  const [pages, setPages] = React.useState([1]);
-  const [infinite, setInfinite] = React.useState(true);
+  const [pages, setPages] = React.useState([1]); // Create state to handle pages to fetch on feed, start fetch only the first page on the api
+  const [infiniteScroll, setInfiniteScroll] = React.useState(true); // Create state to handle the infinite scroll
 
   React.useEffect(() => {
     let wait = false;
 
     const infiniteScroll = () => {
-      console.log(infinite);
-      if (infinite) {
+      if (infiniteScroll) {
         const currentTotalscroll = window.scrollY;
         const pageHeight = document.body.offsetHeight;
         const scrollArea = pageHeight - window.innerHeight; // window.innerHeight = User view height
 
         if (currentTotalscroll > scrollArea * 0.75 && !wait) {
           wait = true;
-          console.log("ativou");
           setPages((pages) => [...pages, pages.length + 1]);
           setTimeout(() => {
             wait = false;
@@ -35,7 +34,7 @@ const Feed = ({ user }) => {
       window.removeEventListener("wheel", infiniteScroll);
       window.removeEventListener("scroll", infiniteScroll);
     };
-  }, [infinite]);
+  }, [infiniteScroll]);
 
   return (
     <div>
@@ -48,11 +47,21 @@ const Feed = ({ user }) => {
           user={user}
           page={page}
           setModalPhoto={setModalPhoto}
-          setInfinite={setInfinite}
+          setInfiniteScroll={setInfiniteScroll}
         />
       ))}
     </div>
   );
+};
+Feed.defaultProps = {
+  user: 0,
+};
+
+Feed.propTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired,
+  ]),
 };
 
 export default Feed;
