@@ -140,3 +140,15 @@ export const PASSWORD_RESET = (body) => {
     },
   };
 };
+
+export const STATS_GET = () => {
+  return {
+    url: `${API_URL}/api/stats`,
+    options: {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    },
+  };
+};

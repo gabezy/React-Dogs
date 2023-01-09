@@ -8,6 +8,8 @@ const Feed = ({ user }) => {
   const [pages, setPages] = React.useState([1]); // Create state to handle pages to fetch on feed, start fetch only the first page on the api
   const [infinite, setInfinite] = React.useState(true); // Create state to handle the infinite scroll
 
+  console.log(user);
+
   React.useEffect(() => {
     let wait = false;
 
@@ -19,7 +21,7 @@ const Feed = ({ user }) => {
 
         if (currentTotalscroll > scrollArea * 0.75 && !wait) {
           wait = true;
-          console.log("ativou");
+          // console.log("ativou");
           setPages((pages) => [...pages, pages.length + 1]);
           setTimeout(() => {
             wait = false;

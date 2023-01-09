@@ -9,6 +9,8 @@ import styles from "./FeedPhoto.module.css";
 const FeedPhoto = ({ user, page, setModalPhoto, setInfinite }) => {
   const { data, loading, error, request } = useFetch();
 
+  console.log(user);
+
   React.useEffect(() => {
     const total = 3;
     async function fetchPhotos() {
@@ -19,6 +21,8 @@ const FeedPhoto = ({ user, page, setModalPhoto, setInfinite }) => {
       });
       const { response, json } = await request(url, options);
       if (response && response.ok && json.length < total) setInfinite(false);
+      console.log(response);
+      console.log(json);
     }
     fetchPhotos();
   }, [request, user, page, setInfinite]);
@@ -37,7 +41,10 @@ const FeedPhoto = ({ user, page, setModalPhoto, setInfinite }) => {
         ))}
       </ul>
     );
-  else return null;
+  else {
+    console.log("Data not Found");
+    return null;
+  }
 };
 
 export default FeedPhoto;
