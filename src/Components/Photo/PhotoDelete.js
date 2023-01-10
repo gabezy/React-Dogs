@@ -7,7 +7,7 @@ import styles from "./PhotoDelete.module.css";
 const PhotoDelete = ({ id }) => {
   const { request, error, loading } = useFetch();
 
-  const handleDelete = async () => {
+  const handleClick = async () => {
     const confirm = window.confirm("Tem certeza que deseja deletar?");
     if (confirm) {
       const { url, options } = PHOTO_DELETE(id);
@@ -23,7 +23,7 @@ const PhotoDelete = ({ id }) => {
           Deletando...
         </button>
       ) : (
-        <button className={styles.delete} onClick={handleDelete}>
+        <button className={styles.delete} onClick={handleClick}>
           Deletar
         </button>
       )}

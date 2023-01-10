@@ -8,6 +8,8 @@ const PhotoComments = (props) => {
   const commentSection = React.useRef(null);
   const { login } = React.useContext(UserContext);
 
+  // console.log("Photo Comments", props.comments);
+
   React.useEffect(() => {
     commentSection.current.scrollTop = commentSection.current.scrollHeight;
   }, [comments]);

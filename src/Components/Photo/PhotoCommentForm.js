@@ -11,8 +11,7 @@ const PhotoCommentsForm = ({ id, setComments, single }) => {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const token = localStorage.getItem("token");
-    const { url, options } = COMMENT_POST(id, { comment }, token);
+    const { url, options } = COMMENT_POST(id, { comment });
     const { response, json } = await request(url, options);
     if (response.ok) {
       setComment("");

@@ -9,6 +9,8 @@ import styles from "./FeedModal.module.css";
 const FeedModal = ({ photo, setModalPhoto }) => {
   const { data, error, loading, request } = useFetch();
 
+  console.log("Feed modal ", data);
+
   React.useEffect(() => {
     const { url, options } = PHOTO_GET(photo.id);
     request(url, options);

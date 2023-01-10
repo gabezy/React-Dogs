@@ -8,6 +8,9 @@ import PhotoDelete from "./PhotoDelete";
 
 const PhotoContent = ({ data, single }) => {
   const { photo, comments } = data;
+
+  // if (comments) console.log("Photo content comment", comments);
+
   const user = React.useContext(UserContext);
   return (
     <div className={`${styles.photo} ${single ? styles.single : ""}`}>

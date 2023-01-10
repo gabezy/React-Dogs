@@ -1,28 +1,24 @@
 import React from "react";
 import FeedPhotoItem from "./FeedPhotoItem";
-import Error from "../Helper/Error";
 import useFetch from "../../Hooks/useFetch";
 import { PHOTOS_GET } from "../../api";
+import Error from "../Helper/Error";
 import Loading from "../Helper/Loading";
 import styles from "./FeedPhoto.module.css";
 
-const FeedPhoto = ({ user, page, setModalPhoto, setInfinite }) => {
+const FeedPhotos = ({ page, user, setModalPhoto, setInfinite }) => {
   const { data, loading, error, request } = useFetch();
 
-  console.log(user);
+  if (data) console.log(data);
+  if (user) console.log(user);
 
   React.useEffect(() => {
-    const total = 3;
     async function fetchPhotos() {
-      const { url, options } = PHOTOS_GET({
-        page,
-        total,
-        user,
-      });
+      const total = 6;
+      const { url, options } = PHOTOS_GET({ page, total, user });
       const { response, json } = await request(url, options);
       if (response && response.ok && json.length < total) setInfinite(false);
-      console.log(response);
-      console.log(json);
+      console.log("Did request");
     }
     fetchPhotos();
   }, [request, user, page, setInfinite]);
@@ -42,9 +38,8 @@ const FeedPhoto = ({ user, page, setModalPhoto, setInfinite }) => {
       </ul>
     );
   else {
-    console.log("Data not Found");
     return null;
   }
 };
 
-export default FeedPhoto;
+export default FeedPhotos;
