@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+<div style="display: flex; align-items: center; gap: .5rem; flex-direction: column">
+  <h2 style="color: #Fb1">Dogs - Rede social para cachorros</h2>
+  <img src="src/Assets/dogs.svg" width="60" />
+</div>
+<hr>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://i.imgur.com/CPigyhd.png" style="margin-bottom: 10px" />
+<br>
 
-## Available Scripts
+## Technical Challenge
 
-In the project directory, you can run:
+This is my first medium/big react application. In this project i learned to handle with react router dom, where i created the site routes, protected routes (only registered users can access), the react hooks, such as, useNavigate, useContext (to access some preset data on anywhere in the application), useState, useEffect, custom hooks and an external library called Victory to created the graphs with the number of views per photo in the user's profile.
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project is a social network for dogs, where you can post photos with a the dog's name, age and weigth. The application allows you to create a new account, where validate if there is any account with the same data, such as email and username. After you created your new account and post some awesome photos of your dog, you can check in the "Estatísticas" page to see how your photos are performace.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+On the feed, you can access your photos and the others user photos as well. If you see some photo that you like, feel free to leave a comment in the comments section.
 
-### `npm test`
+### Check the [link](https://www.youtube.com/watch?v=VI_vVQqJe-M) to see the website running.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+## Running it locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+npm i
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<h2 style="color: #FFFC00">Warning</h2>
+<p>The api only storega the data from photo, comments, and accounts for 10 minutes, after this period all the data is deleted.</p>
+<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Core Technologies
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<div style="display: flex; gap: 1rem">
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@8.2.0/icons/createreactapp.svg" width="50"/>
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@8.2.0/icons/javascript.svg" width="50"/>
+  <img src="https://cdn.jsdelivr.net/npm/simple-icons@8.2.0/icons/reactrouter.svg" width="50"/>
+  <img src="https://i.imgur.com/njqybRv.png" width="50"/>
+</div>
+<br>
+<ul style="margin: 0; padding: 0;">
+  <li>ReactJS</li>
+  <li>JavaScripit</li>
+  <li>React Router Dom</li>
+  <li>Victory (Graphs)</li>
+</ul>
