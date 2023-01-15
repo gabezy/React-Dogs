@@ -5,6 +5,10 @@
   margin-bottom: 1rem;
   justify-items: center;
 }
+.noPhoto {
+  width: fit-content;
+  margin: 5rem auto;
+}
 
 @media (max-width: 40rem) {
   .feed {

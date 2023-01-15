@@ -2,11 +2,14 @@ import React from "react";
 import FeedModal from "./FeedModal";
 import FeedPhoto from "./FeedPhoto";
 import PropTypes from "prop-types";
+import { useLocation } from "react-router-dom";
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
   const [pages, setPages] = React.useState([1]); // Create state to handle pages to fetch on feed, start fetch only the first page on the api
   const [infinite, setInfinite] = React.useState(true); // Create state to handle the infinite scroll
+  const { pathname } = useLocation();
+  const inFeed = pathname === "/";
 
   React.useEffect(() => {
     let wait = false;
@@ -48,8 +51,20 @@ const Feed = ({ user }) => {
           page={page}
           setModalPhoto={setModalPhoto}
           setInfinite={setInfinite}
+          pathname={pathname}
         />
       ))}
+      {!infinite && inFeed && (
+        <p
+          style={{
+            width: "fit-content",
+            margin: "0 auto",
+            marginBlock: "2rem",
+          }}
+        >
+          Fim Feed
+        </p>
+      )}
     </div>
   );
 };
