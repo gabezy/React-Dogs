@@ -1,8 +1,4 @@
-<div style="display: flex; align-items: center; gap: .5rem; flex-direction: column">
-  <h2 style="color: #Fb1">Dogs - Rede social para cachorros</h2>
-  <img src="src/Assets/dogs.svg" width="60" />
-</div>
-<hr>
+# Dogs - Social network for dogs
 
 <img src="https://i.imgur.com/CPigyhd.png" style="margin-bottom: 10px" />
 <br>
