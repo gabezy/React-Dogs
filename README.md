@@ -39,7 +39,7 @@ npm start
 <br>
 <ul style="margin: 0; padding: 0;">
   <li>ReactJS</li>
-  <li>JavaScripit</li>
+  <li>JavaScript</li>
   <li>React Router Dom</li>
   <li>Victory (Graphs)</li>
 </ul>
